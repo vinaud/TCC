@@ -17,7 +17,7 @@ public class TarefaBean implements Serializable {
         this.tarefa = tarefa;
     }
 
-    private Tarefa tarefa = new Tarefa("tarefosa","Bacon ipsum");
+    private Tarefa tarefa = new Tarefa("tarefosa","Bacons ipsum");
 
 
 
