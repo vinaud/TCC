@@ -1,6 +1,13 @@
 package entities;
 
+
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tarefas")
 public class Tarefa {
+
 
     public Tarefa(){
 
@@ -12,9 +19,17 @@ public class Tarefa {
         this.descricao=descricao;
     }
 
-    private String titulo = "tarefinha";
 
-    private String descricao= "Lorem Ipsum!";
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name = "titulo")
+    private String titulo;
+
+    @Column(name="descricao")
+    private String descricao;
 
     public String getDescricao() {
         return descricao;
@@ -32,4 +47,10 @@ public class Tarefa {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+
 }
