@@ -7,10 +7,25 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
    <f:view>
-      <h:outputLabel value="Hello, wxrereorld"/> <br></br>
-      <h:outputLabel value="#{tarefaBean.tarefa.titulo}"/><br></br>
-      <h:outputLabel value="#{tarefaBean.tarefa.descricao}"/>
       <h:outputText value="#{tarefaBean.horario}" />
+      <h1>Lista de Tarefas cadastradas</h1><br></br>
+
+      <p:dataTable var="tarefa" value="#{TarefaBean.tarefas}">
+         <p:column headerText="Id">
+            <h:outputText value="#{tarefa.id}" />
+         </p:column>
+
+         <p:column headerText="Título">
+            <h:outputText value="#{tarefa.titulo}" />
+         </p:column>
+
+         <p:column headerText="Descrição">
+            <h:outputText value="#{tarefa.descricao}" />
+         </p:column>
+
+
+      </p:dataTable>
+
    </f:view>
 
 

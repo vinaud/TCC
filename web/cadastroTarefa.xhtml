@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+    <title>Cadastro de nova tarefa</title>
+</head>
+<body>
+
+<f:view>
+    <h:outputLabel value="Insira os dados da tarefa a ser cadastrada:"/> <br></br>
+
+    <h:outputText value="#{tarefaBean.horario}" /><br></br>
+
+    <h:form>
+        <h:outputText value="Título" /><br />
+        <h:inputText value="#{cadastrotarefaBean.tarefa.titulo}" /><br/><br/>
+
+        <h:outputText value="Descrição" /><br />
+        <h:inputText value="#{cadastrotarefaBean.tarefa.descricao}" /><br/><br/>
+
+        <h:commandButton action="#{cadastrotarefaBean.cadastro}"  value="Cadastrar"/>
+    </h:form>
+
+
+</f:view>
+
+</body>
+</html>
