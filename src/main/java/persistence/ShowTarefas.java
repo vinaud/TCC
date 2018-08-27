@@ -9,6 +9,8 @@ public class ShowTarefas {
     public static void main(String[] args) {
 
        // TarefaDAOHibernate t = new TarefaDAOHibernate();
+
+
        List<Tarefa> lista = TarefaDAOHibernate.getTarefas();
 
        for (Tarefa tarefa : lista)
