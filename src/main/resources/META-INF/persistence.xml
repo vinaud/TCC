@@ -11,6 +11,7 @@
 
         <!-- entidade mapeada -->
         <class>entities.Tarefa</class>
+        <class>entities.User</class>
 
         <properties>
             <!-- dados da conexao -->
@@ -42,6 +43,7 @@
 
         <!-- entidade mapeada -->
         <class>entities.Tarefa</class>
+        <class>entities.User</class>
 
         <properties>
             <!-- dados da conexao -->
