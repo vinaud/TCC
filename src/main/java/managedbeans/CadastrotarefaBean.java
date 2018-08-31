@@ -23,7 +23,6 @@ public class CadastrotarefaBean implements Serializable {
 
     public void cadastro()
     {
-
         tarefa.setTitulo(titulo);
         tarefa.setDescricao(descricao);
         dao.inserirtarefa(tarefa);
