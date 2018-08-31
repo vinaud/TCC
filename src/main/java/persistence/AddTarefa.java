@@ -9,7 +9,7 @@ public class AddTarefa {
     public static void main(String[] args) {
 
         TarefaDAOHibernate t = new TarefaDAOHibernate();
-        Tarefa tarefa = new Tarefa("Tarefa teste 3 nova","Add main dao");
+        Tarefa tarefa = new Tarefa("Tarefa teste 777 nova","Add main dao");
 
         t.inserirtarefa(tarefa);
 

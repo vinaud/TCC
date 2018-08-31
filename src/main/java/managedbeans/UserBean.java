@@ -8,8 +8,9 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
-@Named
+
 @ManagedBean
+@SessionScoped
 public class UserBean implements Serializable {
 
     private User user = new User();
@@ -29,6 +30,7 @@ public class UserBean implements Serializable {
     {
         user.setUsername(username);
         user.setName(nome);
+        user.setLevel(1);
         dao.inserirusuario(user);
     }
 
