@@ -3,6 +3,7 @@ package managedbeans;
 import entities.Tarefa;
 import persistence.TarefaDAOHibernate;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Named;
 import java.io.Serializable;
 
@@ -13,12 +14,16 @@ public class CadastrotarefaBean implements Serializable {
     private TarefaDAOHibernate dao = new TarefaDAOHibernate();
 
 
+    @PostConstruct
+    public void init() {
+
+        tarefa.setTitulo(" ");
+        tarefa.setDescricao(" ");
+    }
 
     public void cadastro()
     {
 
-        System.out.println(tarefa.getDescricao());
-        System.out.println(tarefa.getTitulo());
         dao.inserirtarefa(tarefa);
     }
 

@@ -20,7 +20,7 @@ public class TarefaBean implements Serializable {
     @PostConstruct
     public void init() {
 
-     //   tarefas = TarefaDAOHibernate.getTarefas();
+        tarefas = TarefaDAOHibernate.getTarefas();
     }
 
     public List<Tarefa> getTarefas() {

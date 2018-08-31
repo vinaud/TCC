@@ -10,23 +10,34 @@
       <h:outputText value="#{tarefaBean.horario}" />
       <h1>Lista de Tarefas cadastradas</h1><br></br>
 
-      <p:dataTable var="tarefa" value="#{tarefaBean.tarefas}">
-         <p:column headerText="Id">
-            <h:outputText value="#{tarefa.id}" />
-         </p:column>
+       <h:dataTable value="#{tarefaBean.tarefas}" var="t">
 
-         <p:column headerText="Título">
-            <h:outputText value="#{tarefa.titulo}" />
-         </p:column>
+           <h:column>
+               <!-- column header -->
+               <f:facet name="header">Tarefa</f:facet>
+               <!-- row record -->
+               #{t.titulo}
+           </h:column>
 
-         <p:column headerText="Descrição">
-            <h:outputText value="#{tarefa.descricao}" />
-         </p:column>
+           <h:column>
+               <f:facet name="header">Descrição</f:facet>
+               #{t.descricao}
+           </h:column>
+
+           <h:column>
+               <f:facet name="header">ID</f:facet>
+               #{t.id}
+           </h:column>
 
 
-      </p:dataTable>
+       </h:dataTable>
 
    </f:view>
+
+   <h:form>
+       <h3>Cadastro de tarefas</h3>
+       <h:commandButton action = "cadastroTarefa" value = "Acessar" />
+   </h:form>
 
 
 </html>

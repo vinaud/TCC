@@ -15,19 +15,21 @@
     <h1> Cadastro de usuário</h1>
 
         <h:outputLabel for="name" value="Nome:" />
-        <h:inputText id="name" value="#{userBean.user.name}" />
+        <h:inputText id="name" value="#{userBean.nome}"  />
 
 
         <h:outputLabel for="username" value="Nome de usuário:" />
-        <h:inputText id="username" value="#{userBean.user.username}" />
+        <h:inputText id="username" value="#{userBean.username}"  />
 
 
 
-        <h:commandButton  value="Cadastrar" icon="ui-icon-star"
-                          action="#{userBean.cadastrar}" update="messages">
+        <h:commandButton  value="Cadastrar"
+                          action="#{userBean.cadastrar}" update="form" process="@form" >
         </h:commandButton>
 
 
 </h:form>
+
+
 </body>
 </html>

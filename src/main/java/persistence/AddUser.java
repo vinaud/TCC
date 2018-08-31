@@ -8,9 +8,9 @@ public class AddUser {
 
     public static void main(String[] args) {
     User u = new User();
-    u.setName("Franky");
-    u.setUsername("tom");
-    u.setLevel(40);
+    u.setName("uSer omega");
+    u.setUsername("xomega");
+    u.setLevel(33);
 
     UserDAOHibernate dao = new UserDAOHibernate();
     dao.inserirusuario(u);
