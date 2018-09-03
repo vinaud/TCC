@@ -13,21 +13,15 @@ import java.io.Serializable;
 @SessionScoped
 public class UserBean implements Serializable {
 
-    private User user = new User();
+
     private UserDAOHibernate dao = new UserDAOHibernate();
     private String username = "";
     private String nome = "";
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public void cadastrar()
     {
+        User user = new User();
         user.setUsername(username);
         user.setName(nome);
         user.setLevel(1);

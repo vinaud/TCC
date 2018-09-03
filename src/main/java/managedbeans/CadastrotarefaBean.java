@@ -13,7 +13,7 @@ import java.io.Serializable;
 @SessionScoped
 public class CadastrotarefaBean implements Serializable {
 
-    private Tarefa tarefa = new Tarefa();
+    //private Tarefa tarefa = new Tarefa();
     private TarefaDAOHibernate dao = new TarefaDAOHibernate();
     private String titulo = "";
     private String descricao = "";
@@ -23,19 +23,20 @@ public class CadastrotarefaBean implements Serializable {
 
     public void cadastro()
     {
+        Tarefa tarefa  = new Tarefa();
         tarefa.setTitulo(titulo);
         tarefa.setDescricao(descricao);
         dao.inserirtarefa(tarefa);
     }
 
-    public Tarefa getTarefa() {
+   /* public Tarefa getTarefa() {
         return tarefa;
     }
 
     public void setTarefa(Tarefa tarefa) {
         this.tarefa = tarefa;
     }
-
+*/
     public String getTitulo() {
         return titulo;
     }
