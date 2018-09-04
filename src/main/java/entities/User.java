@@ -23,6 +23,9 @@ public class User {
     @Column(name = "exp")
     private long exp;
 
+    @Column(name = "pontos")
+    private long pontos;
+
 
     public Long getId() {
         return id;
@@ -62,5 +65,13 @@ public class User {
 
     public void setExp(long exp) {
         this.exp = exp;
+    }
+
+    public long getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(long pontos) {
+        this.pontos = pontos;
     }
 }
