@@ -6,6 +6,7 @@ import persistence.TarefaDAOHibernate;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -15,7 +16,7 @@ import java.util.List;
 
 //@Named
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class TarefaBean implements Serializable {
 
     public List<Tarefa> tarefas;
