@@ -12,6 +12,13 @@
 </h:head>
 
 <h:body>
+
+    <div id="header">
+        <ui:insert name="header" >
+            <ui:include src="menuheader.xhtml/"></ui:include>
+        </ui:insert>
+    </div>
+
 <h:outputText value="#{tarefaBean.horario}" />
 
 <h3>Ranking de usuários</h3>

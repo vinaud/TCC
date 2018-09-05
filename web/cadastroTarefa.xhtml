@@ -6,11 +6,16 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<head>
+<h:head>
     <title>Cadastro de nova tarefa</title>
-</head>
-<body>
+</h:head>
+<h:body>
 
+<div id="header">
+    <ui:insert name="header" >
+        <ui:include src="menuheader.xhtml/"></ui:include>
+    </ui:insert>
+</div>
 
     <h1> Insira os dados da tarefa a ser cadastrada:</h1> <br></br>
 
@@ -31,10 +36,6 @@
     </h:form>
 
 
-    <h:link value="Pagina inicial" outcome="index" />
 
-
-
-
-</body>
+</h:body>
 </html>
