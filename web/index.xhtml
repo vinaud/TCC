@@ -14,11 +14,21 @@
 
 <h:body>
 
+    <div id="header">
+        <ui:insert name="header" >
+            <ui:include src="menuheader.xhtml/"></ui:include>
+        </ui:insert>
+    </div>
+
+
       <h:outputText value="#{tarefaBean.horario}" />
 
-    <h3>Lista de Tarefas (prime)</h3>
+    <h3>Lista de Tarefas </h3>
     <h:form>
-        <p:dataTable var="tarefa" value="#{tarefaBean.tarefas}" >
+        <p:dataTable var="tarefa" value="#{tarefaBean.tarefas}" tableStyle="width:auto"  resizableColumns="true">
+
+
+
             <p:column headerText="Id">
                 <h:outputText value="#{tarefa.id}" />
             </p:column>
@@ -35,10 +45,7 @@
         </p:dataTable>
     </h:form>
 
-   <h:form>
-       <h3>Cadastro de tarefas</h3>
-       <h:commandButton action = "cadastroTarefa" value = "Acessar" />
-   </h:form>
+
 
 </h:body>
 </html>
