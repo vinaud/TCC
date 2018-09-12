@@ -3,6 +3,8 @@ package entities;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tarefas")
@@ -33,6 +35,23 @@ public class Tarefa {
 
     @Column(name="dificuldade")
     private int dificuldade;
+
+    @OneToMany(
+
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Erro> erros = new ArrayList<>();
+
+    public void addErro(Erro erro) {
+        erros.add(erro);
+        erro.setTarefa(this);
+    }
+
+    public void removeComment(Erro erro) {
+        erros.remove(erro);
+        erro.setTarefa(null);
+    }
 
     public String getDescricao() {
         return descricao;

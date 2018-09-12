@@ -25,19 +25,19 @@
 
     <h3>Lista de Tarefas </h3>
     <h:form>
-        <p:dataTable var="tarefa" value="#{tarefaBean.tarefas}" tableStyle="width:auto"  resizableColumns="true">
+        <p:dataTable var="tarefa" value="#{tarefaBean.tarefas}"   resizableColumns="true">
 
 
 
-            <p:column headerText="Id">
+            <p:column headerText="Id" width="10">
                 <h:outputText value="#{tarefa.id}" />
             </p:column>
 
-            <p:column headerText="Dificuldade">
+            <p:column headerText="Dificuldade" width="40">
                 <p:rating value="#{tarefa.dificuldade}" readonly="true" />
             </p:column>
 
-            <p:column headerText="Título">
+            <p:column headerText="Título" width="100">
 
                 <p:commandLink id="link01" action="#{tarefaBean.getExibido(tarefa)}" value="#{tarefa.titulo}" ajax="false" >
 
@@ -45,7 +45,7 @@
 
             </p:column>
 
-            <p:column headerText="Descrição">
+            <p:column headerText="Descrição" width="100">
                 <h:outputText value="#{tarefa.descricao}" />
             </p:column>
 

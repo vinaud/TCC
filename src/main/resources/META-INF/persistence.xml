@@ -12,6 +12,7 @@
         <!-- entidade mapeada -->
         <class>entities.Tarefa</class>
         <class>entities.User</class>
+        <class>entities.Erro</class>
 
         <properties>
             <!-- dados da conexao -->
