@@ -20,16 +20,31 @@ import java.util.List;
 public class TarefaBean implements Serializable {
 
     public List<Tarefa> tarefas;
-    private int tarefaid;
-    public Tarefa tarefaP;
+
+    public Tarefa tarefaP;//tarefa sendo visualizada
+
+    private TarefaDAOHibernate dao = new TarefaDAOHibernate();
+    private String titulo = "";
+    private String descricao = "";
+    private int dif = 1;
 
 
     @PostConstruct
     public void init() {
 
         tarefas = TarefaDAOHibernate.getTarefas();
-        tarefaid = 0;
 
+
+    }
+
+    public void cadastro()
+    {
+        Tarefa tarefa  = new Tarefa();
+        tarefa.setTitulo(titulo);
+        tarefa.setDescricao(descricao);
+        tarefa.setDificuldade(dif);
+        dao.inserirtarefa(tarefa);
+        tarefas = TarefaDAOHibernate.getTarefas();
     }
 
     public List<Tarefa> getTarefas() {
@@ -54,5 +69,29 @@ public class TarefaBean implements Serializable {
 
     public void setTarefaP(Tarefa tarefaP) {
         this.tarefaP = tarefaP;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public int getDif() {
+        return dif;
+    }
+
+    public void setDif(int dif) {
+        this.dif = dif;
     }
 }
