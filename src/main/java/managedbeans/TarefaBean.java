@@ -16,16 +16,20 @@ import java.util.List;
 
 //@Named
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class TarefaBean implements Serializable {
 
     public List<Tarefa> tarefas;
+    private int tarefaid;
+    public Tarefa tarefaP;
 
 
     @PostConstruct
     public void init() {
 
         tarefas = TarefaDAOHibernate.getTarefas();
+        tarefaid = 0;
+
     }
 
     public List<Tarefa> getTarefas() {
@@ -38,8 +42,17 @@ public class TarefaBean implements Serializable {
     }
 
 
+    public String getExibido(Tarefa p)
+    {
+        this.tarefaP = p;
+        return "tarefa.xhtml?faces-redirect=true";
+    }
 
+    public Tarefa getTarefaP() {
+        return tarefaP;
+    }
 
-
-
+    public void setTarefaP(Tarefa tarefaP) {
+        this.tarefaP = tarefaP;
+    }
 }

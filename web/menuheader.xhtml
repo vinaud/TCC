@@ -35,7 +35,11 @@
 
                 <f:facet name="options">
                     <p:inputText style="margin-right:10px" placeholder="Pesquisar (ni)"/>
-                    <p:commandButton type="button" value="Logout (ni)" icon="ui-icon-extlink" />
+                    <h:outputText value="Olá usuário"/>
+                    <h:commandLink action="homePage">
+                        <h:graphicImage value="resources/images/icon3.jpg" width="40"  height="40" />
+                    </h:commandLink>
+
                 </f:facet>
             </p:menubar>
         </h:form>

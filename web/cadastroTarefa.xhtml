@@ -23,11 +23,16 @@
 
     <h:form>
 
-            <h:outputText value="Titulo"/><br></br>
-            <h:inputText value="#{cadastrotarefaBean.titulo}" /><br></br><br></br>
+        <h:outputText value="Titulo"/><br></br>
+        <p:inputText value="#{cadastrotarefaBean.titulo}" /><br></br><br></br>
 
-            <h:outputText value="Descrição"/><br></br>
-            <h:inputText value="#{cadastrotarefaBean.descricao}" /><br></br><br></br>
+        <h:outputText value="Descrição"/><br></br>
+        <p:inputTextarea rows="6" cols="33"  value="#{cadastrotarefaBean.descricao}"/><br></br><br></br>
+
+        <h:outputText value="Dificuldade"/><br></br>
+        <p:rating value="#{cadastrotarefaBean.dif}" /><br></br><br></br>
+
+
 
         <h:commandButton  value="Cadastrar"
                           action="#{cadastrotarefaBean.cadastro}" update="form" process="@form" >

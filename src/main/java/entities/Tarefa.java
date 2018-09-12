@@ -31,6 +31,9 @@ public class Tarefa {
     @Column(name="descricao")
     private String descricao;
 
+    @Column(name="dificuldade")
+    private int dificuldade;
+
     public String getDescricao() {
         return descricao;
     }
@@ -53,5 +56,11 @@ public class Tarefa {
     }
     public void setId(long id){this.id=id;}
 
+    public int getDificuldade() {
+        return dificuldade;
+    }
 
+    public void setDificuldade(int dificuldade) {
+        this.dificuldade = dificuldade;
+    }
 }

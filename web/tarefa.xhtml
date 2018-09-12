@@ -8,12 +8,20 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Listagem de Tarefas</title>
+    <title>Tarefa</title>
 </h:head>
 
 
 <h:body>
 
+    <div id="header">
+        <ui:insert name="header" >
+            <ui:include src="menuheader.xhtml/"></ui:include>
+        </ui:insert>
+    </div>
+
+
+    <h:outputText value="#{tarefaBean.tarefaP.titulo}" />
 
 </h:body>
 </html>

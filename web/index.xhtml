@@ -33,13 +33,23 @@
                 <h:outputText value="#{tarefa.id}" />
             </p:column>
 
+            <p:column headerText="Dificuldade">
+                <p:rating value="#{tarefa.dificuldade}" readonly="true" />
+            </p:column>
+
             <p:column headerText="Título">
-                <h:outputText value="#{tarefa.titulo}" />
+
+                <p:commandLink id="link01" action="#{tarefaBean.getExibido(tarefa)}" value="#{tarefa.titulo}" ajax="false" >
+
+                </p:commandLink>
+
             </p:column>
 
             <p:column headerText="Descrição">
                 <h:outputText value="#{tarefa.descricao}" />
             </p:column>
+
+
 
 
         </p:dataTable>

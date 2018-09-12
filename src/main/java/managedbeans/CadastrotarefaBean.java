@@ -17,6 +17,7 @@ public class CadastrotarefaBean implements Serializable {
     private TarefaDAOHibernate dao = new TarefaDAOHibernate();
     private String titulo = "";
     private String descricao = "";
+    private int dif = 1;
 
 
 
@@ -26,6 +27,7 @@ public class CadastrotarefaBean implements Serializable {
         Tarefa tarefa  = new Tarefa();
         tarefa.setTitulo(titulo);
         tarefa.setDescricao(descricao);
+        tarefa.setDificuldade(dif);
         dao.inserirtarefa(tarefa);
     }
 
@@ -51,5 +53,13 @@ public class CadastrotarefaBean implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public int getDif() {
+        return dif;
+    }
+
+    public void setDif(int dif) {
+        this.dif = dif;
     }
 }
