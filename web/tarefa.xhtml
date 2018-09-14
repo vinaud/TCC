@@ -21,10 +21,49 @@
     </div>
 
 
-    <h:outputText value="#{tarefaBean.tarefaP.titulo}" /> <br></br>
-    <h:outputText value="#{tarefaBean.tarefaP.id}" /><br></br>
-    <h:outputText value="#{tarefaBean.tarefaP.descricao}" /><br></br>
-    <h:outputText value="#{tarefaBean.tarefaP.dificuldade}" /><br></br>
+    <h:form>
+        <p:panel id="panel" header="Detalhamento da tarefa # #{tarefaBean.tarefaP.id}" style="margin-bottom:10px;">
+            <p:messages id="messages" />
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="Título:" />
+                <h:outputText value="#{tarefaBean.tarefaP.titulo}" />
+
+                <h:outputLabel value="Dificuldade:" />
+                <p:rating value="#{tarefaBean.tarefaP.dificuldade}" readonly="true" />
+
+                <h:outputLabel value="Descrição:" />
+
+
+            </h:panelGrid>
+            <h:outputText value="#{tarefaBean.tarefaP.descricao}" />
+        </p:panel>
+
+
+            <p:panel id="panel2" header="Cadastrar novo erro" style="margin-bottom:10px;">
+                <p:messages id="messages2" />
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel for="name" value="Título:" />
+                    <p:inputText id="name" required="true" />
+
+                    <p:outputLabel for="extended" value="Detalhamento:" />
+                    <p:inputText id="extended" required="true" />
+
+                    <p:outputLabel for="tipo" value="Tipo de erro:" />
+                    <p:selectOneMenu id="tipo"  style="width:125px">
+                        <f:selectItem itemLabel="Selecione" itemValue="" />
+                        <f:selectItem itemLabel="Visual" itemValue="visual" />
+                        <f:selectItem itemLabel="Negócio" itemValue="negocio" />
+                        <f:selectItem itemLabel="Ajuste" itemValue="ajuste" />
+                    </p:selectOneMenu>
+                </h:panelGrid>
+
+                <p:commandButton value="cadastrar" update="panel2"  />
+            </p:panel>
+
+
+
+    </h:form>
+
 
 </h:body>
 </html>
