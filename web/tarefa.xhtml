@@ -43,13 +43,13 @@
                 <p:messages id="messages2" />
                 <h:panelGrid columns="2" cellpadding="5">
                     <h:outputLabel for="name" value="Título:" />
-                    <p:inputText id="name" required="true" />
+                    <p:inputText id="name" required="true" value="#{tarefaBean.etitulo}" />
 
                     <p:outputLabel for="extended" value="Detalhamento:" />
-                    <p:inputText id="extended" required="true" />
+                    <p:inputTextarea rows="6" cols="33"  id="extended" required="true" value="#{tarefaBean.edescricao}"/>
 
                     <p:outputLabel for="tipo" value="Tipo de erro:" />
-                    <p:selectOneMenu id="tipo"  style="width:125px">
+                    <p:selectOneMenu id="tipo"  style="width:125px" value="#{tarefaBean.tipo}">
                         <f:selectItem itemLabel="Selecione" itemValue="" />
                         <f:selectItem itemLabel="Visual" itemValue="visual" />
                         <f:selectItem itemLabel="Negócio" itemValue="negocio" />
@@ -57,7 +57,7 @@
                     </p:selectOneMenu>
                 </h:panelGrid>
 
-                <p:commandButton value="cadastrar" update="panel2"  />
+                <p:commandButton value="cadastrar" update="panel2"  action="#{tarefaBean.insereErro}"  process="@form" />
             </p:panel>
 
 

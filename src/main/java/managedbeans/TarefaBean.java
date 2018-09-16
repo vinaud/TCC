@@ -1,12 +1,16 @@
 package managedbeans;
 
+import entities.Erro;
 import entities.Tarefa;
+import persistence.ErroDAOHibernate;
 import persistence.TarefaDAOHibernate;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -26,6 +30,11 @@ public class TarefaBean implements Serializable {
     private TarefaDAOHibernate dao = new TarefaDAOHibernate();
     private String titulo = "";
     private String descricao = "";
+
+    private String etitulo = "";
+    private String edescricao= "";
+    private String tipo = "";
+
     private int dif = 1;
 
 
@@ -44,7 +53,21 @@ public class TarefaBean implements Serializable {
         tarefa.setDescricao(descricao);
         tarefa.setDificuldade(dif);
         dao.inserirtarefa(tarefa);
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("Tarefa cadastrada",  "Sucesso ao inserir a tarefa "+ tarefa.getTitulo() ) );
         tarefas = TarefaDAOHibernate.getTarefas();
+    }
+
+    public void insereErro()
+    {
+        Erro erro = new Erro();
+        erro.setTarefa(tarefaP);
+        erro.setDescricao(edescricao);
+        erro.setTipo(tipo);
+        erro.setTitulo(etitulo);
+
+        ErroDAOHibernate.inserirErro(erro);
     }
 
     public List<Tarefa> getTarefas() {
@@ -93,5 +116,29 @@ public class TarefaBean implements Serializable {
 
     public void setDif(int dif) {
         this.dif = dif;
+    }
+
+    public String getEtitulo() {
+        return etitulo;
+    }
+
+    public void setEtitulo(String etitulo) {
+        this.etitulo = etitulo;
+    }
+
+    public String getEdescricao() {
+        return edescricao;
+    }
+
+    public void setEdescricao(String edescricao) {
+        this.edescricao = edescricao;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
