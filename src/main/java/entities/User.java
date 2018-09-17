@@ -29,6 +29,9 @@ public class User {
     @Column(name = "icon")
     private String icon;
 
+    @Column(name = "counter")
+    private int counter;
+
 
     public Long getId() {
         return id;
@@ -84,5 +87,13 @@ public class User {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
     }
 }
