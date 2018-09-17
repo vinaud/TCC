@@ -26,6 +26,9 @@ public class User {
     @Column(name = "pontos")
     private long pontos;
 
+    @Column(name = "icon")
+    private String icon;
+
 
     public Long getId() {
         return id;
@@ -73,5 +76,13 @@ public class User {
 
     public void setPontos(long pontos) {
         this.pontos = pontos;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

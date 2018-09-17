@@ -5,6 +5,7 @@ import entities.Erro;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,13 +36,17 @@ public class ErroDAOHibernate {
     }
 
     public static List<Erro> getErrosById(long id) {
+
         List<Erro> lista ;
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("tarefas");
-        EntityManager manager = factory.createEntityManager();
-
-
-        lista = manager.createQuery("FROM " + Erro.class.getName()).getResultList();
+        lista = getErros();
         List<Erro> retorno = new ArrayList<Erro>();
+
+      //  lista = manager.createQuery("FROM " + Erro.class.getName()).getResultList();
+      /*  List<Erro> retorno = new ArrayList<Erro>();
+        String hql = ("FROM"+ Erro.class.getName()+" E WHERE E.tarefa_id = :tarefa_id");
+        Query query = manager.createNamedQuery(hql);
+        query.setParameter("tarefa_id",id);
+        retorno = query.getResultList();*/
 
         for (int i = 0; i<lista.size(); i++)
         {
