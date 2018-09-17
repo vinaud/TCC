@@ -82,4 +82,12 @@ public class Tarefa {
     public void setDificuldade(int dificuldade) {
         this.dificuldade = dificuldade;
     }
+
+    public List<Erro> getErros() {
+        return erros;
+    }
+
+    public void setErros(List<Erro> erros) {
+        this.erros = erros;
+    }
 }

@@ -25,6 +25,7 @@ public class TarefaBean implements Serializable {
 
     public List<Tarefa> tarefas;
 
+    public List<Erro> errosP;//erros da tarefa visualizada
     public Tarefa tarefaP;//tarefa sendo visualizada
 
     private TarefaDAOHibernate dao = new TarefaDAOHibernate();
@@ -59,7 +60,7 @@ public class TarefaBean implements Serializable {
         tarefas = TarefaDAOHibernate.getTarefas();
     }
 
-    public void insereErro()
+    public String insereErro()
     {
         Erro erro = new Erro();
         erro.setTarefa(tarefaP);
@@ -68,6 +69,8 @@ public class TarefaBean implements Serializable {
         erro.setTitulo(etitulo);
 
         ErroDAOHibernate.inserirErro(erro);
+        errosP = ErroDAOHibernate.getErrosById(tarefaP.getId());
+        return "tarefa.xhtml?faces-redirect=true";
     }
 
     public List<Tarefa> getTarefas() {
@@ -83,6 +86,7 @@ public class TarefaBean implements Serializable {
     public String getExibido(Tarefa p)
     {
         this.tarefaP = p;
+        errosP = ErroDAOHibernate.getErrosById(p.getId());
         return "tarefa.xhtml?faces-redirect=true";
     }
 
@@ -140,5 +144,13 @@ public class TarefaBean implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public List<Erro> getErrosP() {
+        return errosP;
+    }
+
+    public void setErrosP(List<Erro> errosP) {
+        this.errosP = errosP;
     }
 }

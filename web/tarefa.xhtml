@@ -35,7 +35,33 @@
 
 
             </h:panelGrid>
-            <h:outputText value="#{tarefaBean.tarefaP.descricao}" />
+            <h:outputText value="#{tarefaBean.tarefaP.descricao}" /><br></br>
+
+            <p:panel id="panel3" header="Erros encontrados: " style="margin-bottom:10px;">
+                <p:dataScroller value="#{tarefaBean.errosP}" var="erro" chunkSize="10">
+                    <f:facet name="header">
+
+                    </f:facet>
+
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+
+
+                        <p:outputPanel>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputText value="Título:" />
+                                <h:outputText value="#{erro.titulo}" style="font-weight: bold"/>
+
+                                <h:outputText value="Tipo:" />
+                                <h:outputText value="#{erro.tipo}" style="font-weight: bold"/>
+
+                                <h:outputText value="Detalhamento:" />
+                                <h:outputText value="#{erro.descricao}" style="font-weight: bold"/>
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </h:panelGrid>
+                </p:dataScroller>
+            </p:panel>
+
         </p:panel>
 
 
