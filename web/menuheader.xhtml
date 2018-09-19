@@ -35,9 +35,9 @@
 
                 <f:facet name="options">
                     <p:inputText style="margin-right:10px" placeholder="Pesquisar (ni)"/>
-                    <h:outputText value="Olá usuário"/>
+                    <h:outputText value="Olá #{userLoggedBean.logado.username}"/>
                     <h:commandLink action="perfil.xhtml">
-                        <h:graphicImage value="resources/images/icon3.jpg" width="40"  height="40" />
+                        <h:graphicImage value="resources/images/#{userLoggedBean.logado.icon}.jpg" width="40"  height="40" />
                     </h:commandLink>
 
                 </f:facet>

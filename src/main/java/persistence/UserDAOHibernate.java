@@ -35,8 +35,12 @@ public class UserDAOHibernate {
         return lista;
     }
 
-    public User getUsuario()
+    public User getUsuario(long id)
     {
-        return null;
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("tarefas");
+        EntityManager manager = factory.createEntityManager();
+
+        User user = manager.find(User.class, id);
+        return user;
     }
 }

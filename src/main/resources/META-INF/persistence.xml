@@ -13,6 +13,7 @@
         <class>entities.Tarefa</class>
         <class>entities.User</class>
         <class>entities.Erro</class>
+        <class>entities.Badge</class>
 
         <properties>
             <!-- dados da conexao -->
@@ -37,35 +38,5 @@
         </properties>
     </persistence-unit>
 
-    <persistence-unit name="config2" transaction-type="RESOURCE_LOCAL">
 
-        <!-- provedor/implementacao do JPA -->
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
-        <!-- entidade mapeada -->
-        <class>entities.Tarefa</class>
-        <class>entities.User</class>
-
-        <properties>
-            <!-- dados da conexao -->
-            <property name="javax.persistence.jdbc.driver"
-                      value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/tcc?serverTimezone=UTC" />
-            <property name="javax.persistence.jdbc.user"
-                      value="root" />
-            <property name="javax.persistence.jdbc.password"
-                      value="" />
-
-            <!--  propriedades do hibernate -->
-            <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-
-            <!--  atualiza o banco, gera as tabelas se for preciso -->
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-
-        </properties>
-    </persistence-unit>
 </persistence>
