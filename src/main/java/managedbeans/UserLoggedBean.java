@@ -18,7 +18,7 @@ public class UserLoggedBean implements Serializable {
     @PostConstruct
     public void login()
     {
-        logado = dao.getUsuario(57);
+        logado = dao.getUsuario(56);
     }
 
 

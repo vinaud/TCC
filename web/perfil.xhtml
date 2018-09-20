@@ -20,5 +20,26 @@
         </ui:insert>
     </div>
 
+
+    <p:panel id="panel" header="Perfil do usuário: " style="margin-bottom:10px;">
+
+        <h1> <h:outputText value="#{userLoggedBean.logado.name} - #{userLoggedBean.logado.username}"/></h1>
+        <br></br>
+
+        <h:graphicImage value="resources/images/#{userLoggedBean.logado.icon}.jpg"  />
+
+
+        <h3>Experiência:<p:progressBar value="57" labelTemplate="#{userLoggedBean.logado.exp} / 1000" displayOnly="true" style="width:180px;"/> </h3>
+        <h3> <h:outputText value="Nível: #{userLoggedBean.logado.level}"/></h3>
+        <h3> <h:outputText value="Pontos na temporada: #{userLoggedBean.logado.pontos}"/></h3>
+
+
+        <p:panel id="panelb" header="Galeria de conquistas: " style="margin-bottom:10px;">
+
+
+        </p:panel>
+
+    </p:panel>
+
 </h:body>
 </html>
