@@ -32,6 +32,9 @@ public class User {
     @Column(name = "counter")
     private int counter;
 
+    @Column(name = "patente")
+    private String patente;
+
 
     public Long getId() {
         return id;
@@ -95,5 +98,13 @@ public class User {
 
     public void setCounter(int counter) {
         this.counter = counter;
+    }
+
+    public String getPatente() {
+        return patente;
+    }
+
+    public void setPatente(String patente) {
+        this.patente = patente;
     }
 }

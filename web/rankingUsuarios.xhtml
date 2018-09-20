@@ -21,7 +21,7 @@
 
 <h:outputText value="#{tarefaBean.horario}" />
 
-<h3>Ranking de usuários</h3>
+    <p:panel id="panel" header="Ranking de usuários" style="margin-bottom:10px;">
 <h:form>
     <p:dataTable var="user" value="#{userBean.users}" sortBy="#{user.pontos}"
                  sortOrder="descending"  rowIndexVar="index">
@@ -45,6 +45,10 @@
             <h:outputText value="#{user.level}" />
         </p:column>
 
+        <p:column headerText="Patente">
+            <h:graphicImage value="resources/patentes/#{user.patente}.ico" width="40"  height="40" />
+        </p:column>
+
         <p:column headerText="Pontos">
             <h:outputText value="#{user.pontos}" />
         </p:column>
@@ -52,7 +56,7 @@
 
     </p:dataTable>
 </h:form>
-
+    </p:panel>
 
 </h:body>
 </html>
