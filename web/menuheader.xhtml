@@ -33,11 +33,16 @@
                 </p:submenu>
 
 
+
+
                 <f:facet name="options">
-                    <p:inputText style="margin-right:10px" placeholder="Pesquisar (ni)"/>
+
                     <h:outputText value="Olá #{userLoggedBean.logado.username}"/>
+
                     <h:commandLink action="perfil.xhtml">
-                        <h:graphicImage value="resources/images/#{userLoggedBean.logado.icon}.jpg" width="40"  height="40" />
+                        <h:graphicImage value="resources/patentes/#{userLoggedBean.logado.patente}.ico" width="30"  height="30" />
+                        <h:graphicImage value="resources/images/#{userLoggedBean.logado.icon}.jpg" width="30"  height="30" />
+
                     </h:commandLink>
 
                 </f:facet>
