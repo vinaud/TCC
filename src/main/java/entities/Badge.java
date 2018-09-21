@@ -19,6 +19,21 @@ public class Badge {
     @Column(name = "objetivo")
     private String objetivo;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Badge )) return false;
+        return id != null && id.equals(((Badge) o).id);
+    }
+    @Override
+    public int hashCode() {
+        return 31;
+    }
+
     public Long getId() {
         return id;
     }
@@ -49,5 +64,13 @@ public class Badge {
 
     public void setObjetivo(String objetivo) {
         this.objetivo = objetivo;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

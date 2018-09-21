@@ -6,6 +6,7 @@ import entities.Badge;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BadgeDAOHibernate {
@@ -19,7 +20,7 @@ public class BadgeDAOHibernate {
         manager.persist(badge);
         manager.getTransaction().commit();
 
-        System.out.println("ID do erro inserido: " + badge.getId());
+        System.out.println("ID da badge inserida: " + badge.getId());
 
         manager.close();
     }
@@ -34,5 +35,22 @@ public class BadgeDAOHibernate {
         return lista;
     }
 
+    public static List<Badge> getBadgesById(long id) {
+
+        List<Badge> lista ;
+        lista = getBadges();
+        List<Badge> retorno = new ArrayList<Badge>();
+
+
+
+        for (int i = 0; i<lista.size(); i++)
+        {
+            if(lista.get(i).getUser().getId()== id)
+            {
+                retorno.add(lista.get(i));
+            }
+        }
+        return retorno;
+    }
 
 }

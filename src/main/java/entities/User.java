@@ -2,6 +2,8 @@ package entities;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -34,6 +36,20 @@ public class User {
 
     @Column(name = "patente")
     private String patente;
+
+    @OneToMany(
+
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Badge> badges = new ArrayList<>();
+
+
+
+    public void addBadge(Badge badge) {
+        badges.add(badge);
+        badge.setUser(this);
+    }
 
 
     public Long getId() {

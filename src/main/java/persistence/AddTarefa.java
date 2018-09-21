@@ -1,5 +1,6 @@
 package persistence;
 
+import entities.Badge;
 import entities.Tarefa;
 
 
@@ -8,10 +9,15 @@ public class AddTarefa {
 
     public static void main(String[] args) {
 
-        TarefaDAOHibernate t = new TarefaDAOHibernate();
-        Tarefa tarefa = new Tarefa("Tarefa teste 777 nova","Add main dao");
+       UserDAOHibernate dao = new UserDAOHibernate();
 
-        t.inserirtarefa(tarefa);
+        Badge b = new Badge();
+        b.setTitulo("Primeira Tarefa");
+        b.setObjetivo("Finalizar a primeira tarefa no sistema");
+        b.setIcon("b1");
+        b.setUser(dao.getUsuario(56));
+
+        BadgeDAOHibernate.inserirBadge(b);
 
 /*
         EntityManagerFactory factory = Persistence.
