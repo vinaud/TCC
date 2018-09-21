@@ -1,6 +1,8 @@
 package managedbeans;
 
+import entities.Badge;
 import entities.User;
+import persistence.BadgeDAOHibernate;
 import persistence.UserDAOHibernate;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
+import java.util.List;
 
 
 @ManagedBean
@@ -18,13 +21,16 @@ public class UserLoggedBean implements Serializable {
     int nextxp=0;
     int reason=0;
 
+    private List<Badge> badgesP;
+
     @PostConstruct
     public void login()
     {
         logado = dao.getUsuario(56);
         nextxp = logado.getLevel()*110;
         reason = Math.round((logado.getExp()*100)/nextxp );
-       // reason = 60;
+
+        badgesP = BadgeDAOHibernate.getBadgesById(logado.getId());
     }
 
 
@@ -50,5 +56,13 @@ public class UserLoggedBean implements Serializable {
 
     public void setReason(int reason) {
         this.reason = reason;
+    }
+
+    public List<Badge> getBadgesP() {
+        return badgesP;
+    }
+
+    public void setBadgesP(List<Badge> badgesP) {
+        this.badgesP = badgesP;
     }
 }
