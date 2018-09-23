@@ -12,9 +12,9 @@ public class AddTarefa {
        UserDAOHibernate dao = new UserDAOHibernate();
 
         Badge b = new Badge();
-        b.setTitulo("Testador iniciante");
-        b.setObjetivo("Finalizar 10 tarefas");
-        b.setIcon("b2");
+        b.setTitulo("Testador Intermediario III");
+        b.setObjetivo("Finalizar 50 tarefas");
+        b.setIcon("b6");
         b.setUser(dao.getUsuario(56));
 
         BadgeDAOHibernate.inserirBadge(b);

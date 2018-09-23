@@ -20,6 +20,7 @@ public class UserLoggedBean implements Serializable {
     User logado;
     int nextxp=0;
     int reason=0;
+    private Badge selectdBadge;
 
     private List<Badge> badgesP;
 
@@ -64,5 +65,13 @@ public class UserLoggedBean implements Serializable {
 
     public void setBadgesP(List<Badge> badgesP) {
         this.badgesP = badgesP;
+    }
+
+    public Badge getSelectdBadge() {
+        return selectdBadge;
+    }
+
+    public void setSelectdBadge(Badge selectdBadge) {
+        this.selectdBadge = selectdBadge;
     }
 }

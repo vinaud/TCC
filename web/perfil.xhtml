@@ -38,9 +38,9 @@
 
             <h:form id="form">
                 <p:dataGrid var="badge" value="#{userLoggedBean.badgesP}" columns="3" layout="grid"
-                            rows="12" paginator="true" id="badges"
+                            rows="8" paginator="true" id="badges"
                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                            rowsPerPageTemplate="6,12,16">
+                            rowsPerPageTemplate="8,12,16">
 
                     <f:facet name="header">
                         Galeria de conquistas
@@ -49,13 +49,13 @@
                     <p:panel header="#{badge.titulo}" style="text-align:center">
                         <h:panelGrid columns="1" style="width:100%">
 
-                            <h:graphicImage value="resources/badges/#{badge.icon}.ico"  />
+
 
 
 
                             <p:commandLink update=":form:badgeDetail" oncomplete="PF('badgeDialog').show()" title="View Detail">
-                                <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
-                                <f:setPropertyActionListener value="#{badge}" target="#{dataGridView.selectedBadge}" />
+                                <h:graphicImage value="resources/badges/#{badge.icon}.ico" width="50"  height="50" />
+                                <f:setPropertyActionListener value="#{badge}" target="#{userLoggedBean.selectdBadge}" />
                             </p:commandLink>
                         </h:panelGrid>
                     </p:panel>
@@ -64,21 +64,20 @@
 
                 <p:dialog header="Badge Info" widgetVar="badgeDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                     <p:outputPanel id="badgeDetail" style="text-align:center;">
-                        <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedBadge}" columnClasses="label,value">
+                        <p:panelGrid  columns="2" rendered="#{not empty userLoggedBean.selectdBadge}" columnClasses="label,value">
                             <f:facet name="header">
-                                <h:graphicImage value="resources/badges/#{badge.icon}.ico"  />
+
+                                <h:graphicImage value="resources/badges/#{userLoggedBean.selectdBadge.icon}.ico"  width="80"  height="80"/>
 
                             </f:facet>
 
-                            <h:outputText value="Id:" />
-                            <h:outputText value="#{dataGridView.selectedBadge.id}" />
 
-                            <h:outputText value="Titulo" />
-                            <h:outputText value="#{dataGridView.selectedBadge.titulo}" />
+                            <h:outputText value="Titulo:" />
+                            <h:outputText value="#{userLoggedBean.selectdBadge.titulo}" />
 
 
-                            <h:outputText value="Objetivo" />
-                            <h:outputText value="#{dataGridView.selectedBadge.objetivo}" />
+                            <h:outputText value="Objetivo:" />
+                            <h:outputText value="#{userLoggedBean.selectdBadge.objetivo}" />
                         </p:panelGrid>
                     </p:outputPanel>
                 </p:dialog>
