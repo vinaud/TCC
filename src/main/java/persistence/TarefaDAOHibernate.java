@@ -26,6 +26,20 @@ public  class TarefaDAOHibernate  {
 
         manager.close();
     }
+
+    public static void update(Tarefa tarefa)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("tarefas");
+        EntityManager manager = factory.createEntityManager();
+
+        manager.getTransaction().begin();
+        manager.merge(tarefa);
+        manager.getTransaction().commit();
+
+        System.out.println("ID da tarefa atualizada: " + tarefa.getId());
+
+        manager.close();
+    }
     //@Override
     public static List<Tarefa> getTarefas() {
          List<Tarefa> lista ;
@@ -38,7 +52,10 @@ public  class TarefaDAOHibernate  {
     }
 
    // @Override
-    public Tarefa getTarefa() {
-        return null;
+    public static Tarefa getTarefa(long id) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("tarefas");
+        EntityManager manager = factory.createEntityManager();
+
+        return manager.find(Tarefa.class, id);
     }
 }

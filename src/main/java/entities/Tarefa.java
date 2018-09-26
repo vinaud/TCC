@@ -36,6 +36,9 @@ public class Tarefa {
     @Column(name="dificuldade")
     private int dificuldade;
 
+    @Column (name="status")
+    private String Status;
+
     @OneToMany(
 
             cascade = CascadeType.ALL,
@@ -89,5 +92,13 @@ public class Tarefa {
 
     public void setErros(List<Erro> erros) {
         this.erros = erros;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
     }
 }

@@ -53,6 +53,7 @@ public class TarefaBean implements Serializable {
         tarefa.setTitulo(titulo);
         tarefa.setDescricao(descricao);
         tarefa.setDificuldade(dif);
+        tarefa.setStatus("Aberta");
         dao.inserirtarefa(tarefa);
         FacesContext context = FacesContext.getCurrentInstance();
 

@@ -28,6 +28,9 @@
                 <h:outputLabel value="Título:" />
                 <h:outputText value="#{tarefaBean.tarefaP.titulo}" />
 
+                <h:outputText value="Status:" />
+                <h:outputText value="#{tarefaBean.tarefaP.status}" style="font-weight: bold"/>
+
                 <h:outputLabel value="Dificuldade:" />
                 <p:rating value="#{tarefaBean.tarefaP.dificuldade}" readonly="true" />
 

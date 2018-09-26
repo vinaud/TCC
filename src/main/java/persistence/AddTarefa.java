@@ -9,16 +9,18 @@ public class AddTarefa {
 
     public static void main(String[] args) {
 
-       UserDAOHibernate dao = new UserDAOHibernate();
+      Tarefa t = TarefaDAOHibernate.getTarefa(53);
 
-        Badge b = new Badge();
-        b.setTitulo("Testador Intermediario III");
-        b.setObjetivo("Finalizar 50 tarefas");
-        b.setIcon("b6");
-        b.setUser(dao.getUsuario(56));
+        System.out.println("ID da tarefa: " + t.getId());
+        System.out.println("dificuldade: " + t.getDificuldade());
 
-        BadgeDAOHibernate.inserirBadge(b);
+        t.setDificuldade(4);
 
+        TarefaDAOHibernate.update(t);
+
+        t = TarefaDAOHibernate.getTarefa(53);
+
+        System.out.println("dificuldade nova: " + t.getDificuldade());
 /*
         EntityManagerFactory factory = Persistence.
                 createEntityManagerFactory("tarefas");
