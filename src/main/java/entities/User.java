@@ -44,11 +44,24 @@ public class User {
     )
     private List<Badge> badges = new ArrayList<>();
 
+    @OneToMany(
+
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Tarefa> tarefas = new ArrayList<>();
+
+
 
 
     public void addBadge(Badge badge) {
         badges.add(badge);
         badge.setUser(this);
+    }
+
+    public void addTarefa(Tarefa tarefa) {
+        tarefas.add(tarefa);
+        tarefa.setUser(this);
     }
 
 
@@ -122,5 +135,21 @@ public class User {
 
     public void setPatente(String patente) {
         this.patente = patente;
+    }
+
+    public List<Tarefa> getTarefas() {
+        return tarefas;
+    }
+
+    public void setTarefas(List<Tarefa> tarefas) {
+        this.tarefas = tarefas;
+    }
+
+    public List<Badge> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<Badge> badges) {
+        this.badges = badges;
     }
 }

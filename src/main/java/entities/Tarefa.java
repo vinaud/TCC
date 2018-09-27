@@ -39,6 +39,10 @@ public class Tarefa {
     @Column (name="status")
     private String Status;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @OneToMany(
 
             cascade = CascadeType.ALL,
@@ -100,5 +104,13 @@ public class Tarefa {
 
     public void setStatus(String status) {
         Status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

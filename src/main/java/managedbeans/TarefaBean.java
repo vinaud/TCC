@@ -2,6 +2,7 @@ package managedbeans;
 
 import entities.Erro;
 import entities.Tarefa;
+import entities.User;
 import persistence.ErroDAOHibernate;
 import persistence.TarefaDAOHibernate;
 
@@ -35,6 +36,8 @@ public class TarefaBean implements Serializable {
     private String etitulo = "";
     private String edescricao= "";
     private String tipo = "";
+
+
 
     private int dif = 1;
 
@@ -154,4 +157,6 @@ public class TarefaBean implements Serializable {
     public void setErrosP(List<Erro> errosP) {
         this.errosP = errosP;
     }
+
+
 }

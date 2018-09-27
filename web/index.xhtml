@@ -49,6 +49,10 @@
                 <h:outputText value="#{tarefa.status}" />
             </p:column>
 
+            <p:column headerText="Responsável" width="100">
+                <h:outputText value="#{tarefa.user.username}" />
+            </p:column>
+
             <p:column headerText="Descrição" width="100">
                 <h:outputText value="#{tarefa.descricao}" />
             </p:column>
