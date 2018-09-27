@@ -1,8 +1,10 @@
 package managedbeans;
 
 import entities.Badge;
+import entities.Tarefa;
 import entities.User;
 import persistence.BadgeDAOHibernate;
+import persistence.TarefaDAOHibernate;
 import persistence.UserDAOHibernate;
 
 import javax.annotation.PostConstruct;
@@ -23,6 +25,7 @@ public class UserLoggedBean implements Serializable {
     private Badge selectdBadge;
 
     private List<Badge> badgesP;
+    private List<Tarefa> tarefasP;
 
     @PostConstruct
     public void login()
@@ -32,6 +35,7 @@ public class UserLoggedBean implements Serializable {
         reason = Math.round((logado.getExp()*100)/nextxp );
 
         badgesP = BadgeDAOHibernate.getBadgesById(logado.getId());
+        tarefasP= TarefaDAOHibernate.getTarefasById(logado.getId());
     }
 
 
@@ -73,5 +77,13 @@ public class UserLoggedBean implements Serializable {
 
     public void setSelectdBadge(Badge selectdBadge) {
         this.selectdBadge = selectdBadge;
+    }
+
+    public List<Tarefa> getTarefasP() {
+        return tarefasP;
+    }
+
+    public void setTarefasP(List<Tarefa> tarefasP) {
+        this.tarefasP = tarefasP;
     }
 }

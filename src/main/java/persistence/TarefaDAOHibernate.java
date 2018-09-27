@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -57,5 +58,21 @@ public  class TarefaDAOHibernate  {
         EntityManager manager = factory.createEntityManager();
 
         return manager.find(Tarefa.class, id);
+    }
+
+    public static List<Tarefa> getTarefasById(long id)
+    {
+        List<Tarefa> lista ;
+        lista = getTarefas();
+        List<Tarefa> retorno = new ArrayList<Tarefa>();
+
+        for (int i = 0; i<lista.size(); i++)
+        {
+            if(lista.get(i).getUser() != null && lista.get(i).getUser().getId() == id)
+            {
+                retorno.add(lista.get(i));
+            }
+        }
+        return retorno;
     }
 }
