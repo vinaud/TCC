@@ -12,6 +12,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,6 +27,8 @@ public class UserLoggedBean implements Serializable {
 
     private List<Badge> badgesP;
     private List<Tarefa> tarefasP;
+    private List<Tarefa> tarefasA;
+    private List<Tarefa> tarefasF;
 
     @PostConstruct
     public void login()
@@ -36,8 +39,37 @@ public class UserLoggedBean implements Serializable {
 
         badgesP = BadgeDAOHibernate.getBadgesById(logado.getId());
         tarefasP= TarefaDAOHibernate.getTarefasById(logado.getId());
+        tarefasA = tarefasAberta(tarefasP);
+        tarefasF = tarefasFinalizada(tarefasP);
     }
 
+    public List<Tarefa> tarefasAberta(List<Tarefa> tarefas)
+    {
+        List<Tarefa> retorno = new ArrayList<Tarefa>();
+
+        for (int i = 0; i<tarefasP.size(); i++)
+        {
+            if(tarefasP.get(i).getUser() != null && tarefasP.get(i).getStatus().equals("Aberta"))
+            {
+                retorno.add(tarefasP.get(i));
+            }
+        }
+        return retorno;
+    }
+
+    public List<Tarefa> tarefasFinalizada(List<Tarefa> tarefas)
+    {
+        List<Tarefa> retorno = new ArrayList<Tarefa>();
+
+        for (int i = 0; i<tarefasP.size(); i++)
+        {
+            if(tarefasP.get(i).getUser() != null && tarefasP.get(i).getStatus().equals("Finalizada"))
+            {
+                retorno.add(tarefasP.get(i));
+            }
+        }
+        return retorno;
+    }
 
     public User getLogado() {
         return logado;
@@ -85,5 +117,21 @@ public class UserLoggedBean implements Serializable {
 
     public void setTarefasP(List<Tarefa> tarefasP) {
         this.tarefasP = tarefasP;
+    }
+
+    public List<Tarefa> getTarefasA() {
+        return tarefasA;
+    }
+
+    public void setTarefasA(List<Tarefa> tarefasA) {
+        this.tarefasA = tarefasA;
+    }
+
+    public List<Tarefa> getTarefasF() {
+        return tarefasF;
+    }
+
+    public void setTarefasF(List<Tarefa> tarefasF) {
+        this.tarefasF = tarefasF;
     }
 }

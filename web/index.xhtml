@@ -25,7 +25,8 @@
 
     <h3>Lista de Tarefas </h3>
     <h:form>
-        <p:dataTable var="tarefa" value="#{tarefaBean.tarefas}"   resizableColumns="true">
+        <p:dataTable var="tarefa" value="#{tarefaBean.tarefas}"   resizableColumns="true" sortBy="#{tarefa.status}"
+                     sortOrder="ascending">
 
 
 
