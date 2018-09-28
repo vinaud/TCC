@@ -63,7 +63,7 @@ public class UserLoggedBean implements Serializable {
 
         for (int i = 0; i<tarefasP.size(); i++)
         {
-            if(tarefasP.get(i).getUser() != null && tarefasP.get(i).getStatus().equals("Finalizada"))
+            if(tarefasP.get(i).getUser() != null && (tarefasP.get(i).getStatus().equals("Finalizada") || tarefasP.get(i).getStatus().equals("Validada")))
             {
                 retorno.add(tarefasP.get(i));
             }

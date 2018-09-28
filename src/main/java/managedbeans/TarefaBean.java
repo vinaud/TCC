@@ -88,6 +88,22 @@ public class TarefaBean implements Serializable {
         return "tarefa.xhtml?faces-redirect=true";
     }
 
+    public String finalizarTarefa()
+    {
+        tarefaP.setStatus("Finalizada");
+        TarefaDAOHibernate.update(tarefaP);
+        init();
+        return "tarefa.xhtml?faces-redirect=true";
+    }
+
+    public String validarTarefa()
+    {
+        tarefaP.setStatus("Validada");
+        TarefaDAOHibernate.update(tarefaP);
+        init();
+        return "tarefa.xhtml?faces-redirect=true";
+    }
+
     public List<Tarefa> getTarefas() {
         return tarefas;
     }
