@@ -96,6 +96,13 @@
 
     </h:form>
 
+    <p:panel id="panelA" header="Assumir tarefa" style="margin-bottom:10px;">
+        <h:form>
+            <p:commandButton value="Assumir" update="panelA"  action="#{tarefaBean.assumirTarefa(userLoggedBean.logado)}"  process="@form" />
+        </h:form>
+    </p:panel>
+
+
 
 </h:body>
 </html>

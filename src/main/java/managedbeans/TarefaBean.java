@@ -5,6 +5,7 @@ import entities.Tarefa;
 import entities.User;
 import persistence.ErroDAOHibernate;
 import persistence.TarefaDAOHibernate;
+import persistence.UserDAOHibernate;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -30,6 +31,7 @@ public class TarefaBean implements Serializable {
     public Tarefa tarefaP;//tarefa sendo visualizada
 
     private TarefaDAOHibernate dao = new TarefaDAOHibernate();
+    private UserDAOHibernate userdao = new UserDAOHibernate();
     private String titulo = "";
     private String descricao = "";
 
@@ -74,6 +76,15 @@ public class TarefaBean implements Serializable {
 
         ErroDAOHibernate.inserirErro(erro);
         errosP = ErroDAOHibernate.getErrosById(tarefaP.getId());
+        return "tarefa.xhtml?faces-redirect=true";
+    }
+
+    public String assumirTarefa(User user)
+    {
+
+        tarefaP.setUser(user);
+        TarefaDAOHibernate.update(tarefaP);
+        init();
         return "tarefa.xhtml?faces-redirect=true";
     }
 
