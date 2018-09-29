@@ -75,4 +75,36 @@ public  class TarefaDAOHibernate  {
         }
         return retorno;
     }
+
+    public static List<Tarefa> getTarefasFinalizadas()
+    {
+        List<Tarefa> lista ;
+        lista = getTarefas();
+        List<Tarefa> retorno = new ArrayList<Tarefa>();
+
+        for (int i = 0; i<lista.size(); i++)
+        {
+            if( lista.get(i).getStatus().equals("Finalizada"))
+            {
+                retorno.add(lista.get(i));
+            }
+        }
+        return retorno;
+    }
+
+    public static List<Tarefa> getTarefasValidadas()
+    {
+        List<Tarefa> lista ;
+        lista = getTarefas();
+        List<Tarefa> retorno = new ArrayList<Tarefa>();
+
+        for (int i = 0; i<lista.size(); i++)
+        {
+            if( lista.get(i).getStatus().equals("Validada"))
+            {
+                retorno.add(lista.get(i));
+            }
+        }
+        return retorno;
+    }
 }

@@ -30,6 +30,9 @@ public class TarefaBean implements Serializable {
     public List<Erro> errosP;//erros da tarefa visualizada
     public Tarefa tarefaP;//tarefa sendo visualizada
 
+    private List<Tarefa> tarefasV; // tarefas validadas
+    private List<Tarefa> tarefasF; // tarefas finalizadas (nao validadas)
+
     private TarefaDAOHibernate dao = new TarefaDAOHibernate();
     private UserDAOHibernate userdao = new UserDAOHibernate();
     private String titulo = "";
@@ -48,6 +51,8 @@ public class TarefaBean implements Serializable {
     public void init() {
 
         tarefas = TarefaDAOHibernate.getTarefas();
+        tarefasV= TarefaDAOHibernate.getTarefasValidadas();
+        tarefasF=TarefaDAOHibernate.getTarefasFinalizadas();
 
 
     }
@@ -185,5 +190,19 @@ public class TarefaBean implements Serializable {
         this.errosP = errosP;
     }
 
+    public List<Tarefa> getTarefasV() {
+        return tarefasV;
+    }
 
+    public void setTarefasV(List<Tarefa> tarefasV) {
+        this.tarefasV = tarefasV;
+    }
+
+    public List<Tarefa> getTarefasF() {
+        return tarefasF;
+    }
+
+    public void setTarefasF(List<Tarefa> tarefasF) {
+        this.tarefasF = tarefasF;
+    }
 }
