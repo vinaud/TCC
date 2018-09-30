@@ -39,6 +39,9 @@ public class Tarefa {
     @Column (name="status")
     private String Status;
 
+    @Column(name = "xp")
+    private long xp;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -112,5 +115,13 @@ public class Tarefa {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public long getXp() {
+        return xp;
+    }
+
+    public void setXp(long xp) {
+        this.xp = xp;
     }
 }

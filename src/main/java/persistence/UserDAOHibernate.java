@@ -24,6 +24,19 @@ public class UserDAOHibernate {
         manager.close();
     }
 
+    public static void update(User user)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("tarefas");
+        EntityManager manager = factory.createEntityManager();
+
+        manager.getTransaction().begin();
+        manager.merge(user);
+        manager.getTransaction().commit();
+
+        System.out.println("ID do usuario atualizado: " + user.getId());
+
+        manager.close();
+    }
     public List<User> getUsuarios()
     {
         List<User> lista ;

@@ -33,6 +33,7 @@ public class User {
 
     @Column(name = "counter")
     private int counter;
+    //contador de tarefas do usuario já validadas
 
     @Column(name = "patente")
     private String patente;

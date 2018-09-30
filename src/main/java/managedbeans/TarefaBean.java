@@ -3,6 +3,7 @@ package managedbeans;
 import entities.Erro;
 import entities.Tarefa;
 import entities.User;
+import gaming.Game;
 import persistence.ErroDAOHibernate;
 import persistence.TarefaDAOHibernate;
 import persistence.UserDAOHibernate;
@@ -81,6 +82,9 @@ public class TarefaBean implements Serializable {
 
         ErroDAOHibernate.inserirErro(erro);
         errosP = ErroDAOHibernate.getErrosById(tarefaP.getId());
+
+        Game.updateTarefaXP(tarefaP,erro);
+
         return "tarefa.xhtml?faces-redirect=true";
     }
 
@@ -105,6 +109,13 @@ public class TarefaBean implements Serializable {
     {
         tarefaP.setStatus("Validada");
         TarefaDAOHibernate.update(tarefaP);
+
+        User tarefaUser = tarefaP.getUser();
+        tarefaUser.setCounter(tarefaUser.getCounter()+1);
+        UserDAOHibernate.update(tarefaUser);
+
+        Game.earnBadge(tarefaP, tarefaUser);
+
         init();
         return "tarefa.xhtml?faces-redirect=true";
     }

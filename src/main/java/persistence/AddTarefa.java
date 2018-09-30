@@ -2,25 +2,18 @@ package persistence;
 
 import entities.Badge;
 import entities.Tarefa;
+import entities.User;
+import gaming.BadgeMaker;
 
 
 public class AddTarefa {
 
 
     public static void main(String[] args) {
+UserDAOHibernate dao = new UserDAOHibernate();
+      User u = dao.getUsuario(56);
+        BadgeMaker.earnVaderBadge(u);
 
-      Tarefa t = TarefaDAOHibernate.getTarefa(53);
-
-        System.out.println("ID da tarefa: " + t.getId());
-        System.out.println("dificuldade: " + t.getDificuldade());
-
-        t.setDificuldade(4);
-
-        TarefaDAOHibernate.update(t);
-
-        t = TarefaDAOHibernate.getTarefa(53);
-
-        System.out.println("dificuldade nova: " + t.getDificuldade());
 /*
         EntityManagerFactory factory = Persistence.
                 createEntityManagerFactory("tarefas");

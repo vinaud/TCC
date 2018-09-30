@@ -43,7 +43,7 @@
             </h:panelGrid>
             <h:outputText value="#{tarefaBean.tarefaP.descricao}" /><br></br>
 
-            <p:panel id="panel3" header="Erros encontrados: " style="margin-bottom:10px;">
+            <p:panel id="panel3" header=" #{tarefaBean.tarefaP.xp} XP  - Erros encontrados: " style="margin-bottom:10px;">
                 <p:dataScroller value="#{tarefaBean.errosP}" var="erro" chunkSize="10">
                     <f:facet name="header">
 
