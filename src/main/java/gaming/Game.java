@@ -15,9 +15,12 @@ public class Game {
 
     }
 
-    public static void gainPoints()
+    public static void gainPoints(Tarefa t, User u)
     {
-
+        long pontos = t.getDificuldade()*100;
+        long newPontos = u.getPontos() + pontos;
+        u.setPontos(newPontos);
+        UserDAOHibernate.update(u);
     }
 
     public static void gainXP(User user, Tarefa tarefa)

@@ -115,6 +115,7 @@ public class TarefaBean implements Serializable {
         UserDAOHibernate.update(tarefaUser);
 
         Game.earnBadge(tarefaP, tarefaUser);
+        Game.gainPoints(tarefaP,tarefaUser);
 
         init();
         return "tarefa.xhtml?faces-redirect=true";
