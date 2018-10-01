@@ -116,6 +116,7 @@ public class TarefaBean implements Serializable {
 
         Game.earnBadge(tarefaP, tarefaUser);
         Game.gainPoints(tarefaP,tarefaUser);
+        Game.gainXP(tarefaP,tarefaUser);
 
         init();
         return "tarefa.xhtml?faces-redirect=true";
