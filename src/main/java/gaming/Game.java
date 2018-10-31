@@ -108,16 +108,20 @@ public class Game {
         long newxp = 0;
         if(e.getTipo().equals("visual"))
         {
+            newxp = 20;
+        }
+        else if( e.getTipo().equals("bd"))
+        {
             newxp = 50;
         }
-        else if( e.getTipo().equals("ajuste"))
+        else if( e.getTipo().equals("ci"))
         {
-            newxp = 80;
+            newxp = 100;
         }
 
         else if( e.getTipo().equals("negocio"))
         {
-            newxp = 100;
+            newxp = 80;
         }
 
         t.setXp(t.getXp()+newxp);
