@@ -3,6 +3,7 @@ package managedbeans;
 import entities.Erro;
 import entities.Tarefa;
 import entities.User;
+import filesmanager.GeradorRelatorio;
 import gaming.Game;
 import persistence.ErroDAOHibernate;
 import persistence.TarefaDAOHibernate;
@@ -15,6 +16,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -122,6 +124,35 @@ public class TarefaBean implements Serializable {
         return "tarefa.xhtml?faces-redirect=true";
     }
 
+    public void gerarRelatorioTarefa()
+    {
+        String param = "";
+        param = param + "Tarefa "+tarefaP.getTitulo() + "\r\n";
+        param = param + "ID: "+tarefaP.getId() + "\r\n";
+        param = param + "Descrição:"+tarefaP.getDescricao() + "\r\n";
+        param = param + "Testador:"+tarefaP.getUser().getName()+ "\r\n";
+        param = param +  "Erros encontrados: \r\n \r\n";
+
+        for(Erro e : errosP)
+        {
+            param = param + e.getTitulo() +" \r\n";
+            param = param +"Tipo: "+ e.getTipo()+ "\r\n";
+            param = param + "Descrição do erro: \r\n"+e.getDescricao() +"\r\n \r\n";
+            param = param +"---------------------------------------------------- \r\n \r\n";
+        }
+
+        try
+        {
+            GeradorRelatorio.writeStream(param);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Relatório gerado com sucesso"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Falha ao gerar o relatório"));
+        }
+
+    }
     public List<Tarefa> getTarefas() {
         return tarefas;
     }

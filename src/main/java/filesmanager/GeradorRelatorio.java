@@ -7,7 +7,7 @@ import java.io.Writer;
 public class GeradorRelatorio {
 
     public static  void writeStream(String relatorio) throws IOException {
-        Writer writer = new FileWriter("C:\\Users\\João Vinaud\\Desktop\\outputOne.txt");
+        Writer writer = new FileWriter("C:\\Users\\João Vinaud\\Desktop\\relatorioTeste.txt");
 
         try {
             writer.write(relatorio);
