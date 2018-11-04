@@ -5,6 +5,8 @@ import entities.Tarefa;
 import entities.User;
 import filesmanager.GeradorRelatorio;
 import gaming.Game;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import persistence.ErroDAOHibernate;
 import persistence.TarefaDAOHibernate;
 import persistence.UserDAOHibernate;
@@ -14,10 +16,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -49,6 +51,14 @@ public class TarefaBean implements Serializable {
 
     private int dif = 1;
 
+
+    private StreamedContent file;
+
+   /* public TarefaBean ()
+    {
+        InputStream stream = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("C:\\Users\\João Vinaud\\Desktop\\relatorioTeste.txt");
+        file = new DefaultStreamedContent(stream, "application/txt", "relatorioTeste.txt");
+    }*/
 
     @PostConstruct
     public void init() {
@@ -144,6 +154,13 @@ public class TarefaBean implements Serializable {
         try
         {
             GeradorRelatorio.writeStream(param);
+          //  InputStream stream = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("C:\\Users\\João Vinaud\\Desktop\\relatorioTeste.txt");
+          //  file = new DefaultStreamedContent(stream, "application/txt", "relatorioTeste.txt");
+
+            ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
+            File result = new File(extContext.getRealPath("C:\\Users\\João Vinaud\\Desktop\\relatorioTeste.txt"));
+            InputStream stream = new FileInputStream("C:\\Users\\João Vinaud\\Desktop\\relatorioTeste.txt");
+            file = new DefaultStreamedContent(stream, "application/txt", "relatorioTeste.txt");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "Relatório gerado com sucesso"));
 
         } catch (IOException e) {
@@ -248,5 +265,9 @@ public class TarefaBean implements Serializable {
 
     public void setTarefasF(List<Tarefa> tarefasF) {
         this.tarefasF = tarefasF;
+    }
+
+    public StreamedContent getFile() {
+        return file;
     }
 }

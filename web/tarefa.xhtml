@@ -115,6 +115,12 @@
 
         <h:form>
             <p:commandButton value="Gerar Relatório" update="panelF"  action="#{tarefaBean.gerarRelatorioTarefa}"  process="@form" />
+
+        </h:form>
+        <h:form  enctype="multipart/form-data">
+            <p:commandButton value="Download de relatório"  ajax="false" icon="ui-icon-arrowthick-1-s">
+                <p:fileDownload value="#{tarefaBean.file}" />
+            </p:commandButton>
         </h:form>
     </p:panel>
 
