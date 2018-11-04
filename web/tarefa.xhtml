@@ -113,6 +113,10 @@
             <p:commandButton value="Validar" update="panelF"  action="#{tarefaBean.validarTarefa}"  process="@form" />
         </h:form>
 
+
+    </p:panel>
+
+    <p:panel id="panelRe" header="Relatório" style="margin-bottom:10px;">
         <h:form>
             <p:commandButton value="Gerar Relatório" update="panelF"  action="#{tarefaBean.gerarRelatorioTarefa}"  process="@form" />
 
@@ -123,6 +127,8 @@
             </p:commandButton>
         </h:form>
     </p:panel>
+
+
 
 
 
