@@ -47,9 +47,8 @@ public class TarefaBean implements Serializable {
     private String edescricao= "";
     private String tipo = "";
 
-
-
     private int dif = 1;
+    private int horas = 1;
 
 
     private StreamedContent file;
@@ -76,6 +75,7 @@ public class TarefaBean implements Serializable {
         tarefa.setTitulo(titulo);
         tarefa.setDescricao(descricao);
         tarefa.setDificuldade(dif);
+        tarefa.setHorasEsperadas(horas);
         tarefa.setStatus("Aberta");
         dao.inserirtarefa(tarefa);
         FacesContext context = FacesContext.getCurrentInstance();
@@ -269,5 +269,13 @@ public class TarefaBean implements Serializable {
 
     public StreamedContent getFile() {
         return file;
+    }
+
+    public int getHoras() {
+        return horas;
+    }
+
+    public void setHoras(int horas) {
+        this.horas = horas;
     }
 }

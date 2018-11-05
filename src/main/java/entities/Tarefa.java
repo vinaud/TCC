@@ -36,6 +36,9 @@ public class Tarefa {
     @Column(name="dificuldade")
     private int dificuldade;
 
+    @Column(name="horasEsperadas")
+    private int horasEsperadas;
+
     @Column (name="status")
     private String Status;
 
@@ -123,5 +126,13 @@ public class Tarefa {
 
     public void setXp(long xp) {
         this.xp = xp;
+    }
+
+    public int getHorasEsperadas() {
+        return horasEsperadas;
+    }
+
+    public void setHorasEsperadas(int horasEsperadas) {
+        this.horasEsperadas = horasEsperadas;
     }
 }
