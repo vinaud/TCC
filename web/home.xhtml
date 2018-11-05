@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Listagem de Tarefas</title>
+</h:head>
+
+
+<h:body>
+
+    <div id="header">
+        <ui:insert name="header" >
+            <ui:include src="menuheader.xhtml/"></ui:include>
+        </ui:insert>
+    </div>
+
+
+    <h:outputText value="#{tarefaBean.horario}" />
+
+    <h3>Lista de Tarefas </h3>
+    <h:form>
+        <p:dataTable var="tarefa" value="#{tarefaBean.tarefas}"   resizableColumns="true" sortBy="#{tarefa.status}"
+                     sortOrder="ascending">
+
+
+
+            <p:column headerText="Id" width="10">
+                <h:outputText value="#{tarefa.id}" />
+            </p:column>
+
+            <p:column headerText="Dificuldade" width="40">
+                <p:rating value="#{tarefa.dificuldade}" readonly="true" />
+            </p:column>
+
+            <p:column headerText="Título" width="100">
+
+                <p:commandLink id="link01" action="#{tarefaBean.getExibido(tarefa)}" value="#{tarefa.titulo}" ajax="false" >
+
+                </p:commandLink>
+
+            </p:column>
+
+            <p:column headerText="Status" width="100">
+                <h:outputText value="#{tarefa.status}" />
+            </p:column>
+
+            <p:column headerText="Responsável" width="100">
+                <h:outputText value="#{tarefa.user.username}" />
+            </p:column>
+
+            <p:column headerText="Descrição" width="100">
+                <h:outputText value="#{tarefa.descricao}" />
+            </p:column>
+
+
+
+
+        </p:dataTable>
+    </h:form>
+
+
+
+</h:body>
+</html>

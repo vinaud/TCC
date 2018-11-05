@@ -49,8 +49,16 @@ public class UserLoggedBean implements Serializable {
 
     public String login2()
     {
+        logado = dao.getUsuario(loginId);
+        nextxp = logado.getLevel()*110;
+        reason = Math.round((logado.getExp()*100)/nextxp );
 
-        return "index.xhtml?faces-redirect=true";
+        badgesP = BadgeDAOHibernate.getBadgesById(logado.getId());
+        tarefasP= TarefaDAOHibernate.getTarefasById(logado.getId());
+        tarefasA = tarefasAberta(tarefasP);
+        tarefasF = tarefasFinalizada(tarefasP);
+
+        return "home.xhtml?faces-redirect=true";
     }
 
     public List<Tarefa> tarefasAberta(List<Tarefa> tarefas)
