@@ -30,6 +30,10 @@ public class UserLoggedBean implements Serializable {
     private List<Tarefa> tarefasA;
     private List<Tarefa> tarefasF;
 
+    private String loginUsername;
+    private String loginPass;
+    private int loginId;
+
     @PostConstruct
     public void login()
     {
@@ -41,6 +45,12 @@ public class UserLoggedBean implements Serializable {
         tarefasP= TarefaDAOHibernate.getTarefasById(logado.getId());
         tarefasA = tarefasAberta(tarefasP);
         tarefasF = tarefasFinalizada(tarefasP);
+    }
+
+    public String login2()
+    {
+
+        return "index.xhtml?faces-redirect=true";
     }
 
     public List<Tarefa> tarefasAberta(List<Tarefa> tarefas)
@@ -133,5 +143,29 @@ public class UserLoggedBean implements Serializable {
 
     public void setTarefasF(List<Tarefa> tarefasF) {
         this.tarefasF = tarefasF;
+    }
+
+    public String getLoginUsername() {
+        return loginUsername;
+    }
+
+    public void setLoginUsername(String loginUsername) {
+        this.loginUsername = loginUsername;
+    }
+
+    public String getLoginPass() {
+        return loginPass;
+    }
+
+    public void setLoginPass(String loginPass) {
+        this.loginPass = loginPass;
+    }
+
+    public int getLoginId() {
+        return loginId;
+    }
+
+    public void setLoginId(int loginId) {
+        this.loginId = loginId;
     }
 }
