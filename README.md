@@ -18,3 +18,12 @@ pontos alcançados, além de ganhar recompensas, como medalhas, de
 forma similar a um jogo eletrônico. O objetivo é fazer com que os
 testadores tenham maior engajamento ao trabalhar com testes
 exploratórios.
+
+## Tecnologias usadas
+- Java EE
+- JSF + PrimeFaces
+- Hibernate 
+- MySql
+
+## Apresentação do projeto
+[Ver apresentação](https://drive.google.com/open?id=1VCbaxwbW2_kZfVLLD2BSvcrSAg3HetXi
