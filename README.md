@@ -5,8 +5,8 @@
 [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
 
 ## Resumo
-o sistema Web
-chamado Gamified Explorer que tem como objetivo auxiliar testadores a
+O sistema Web
+chamado Gamified Explorer  tem como objetivo auxiliar testadores a
 realizar tarefas de testes exploratórios utilizando um sistema gamificado.
 A ferramenta permite que um gerente de testes cadastre tarefas de testes
 a serem executadas por testadores, que por sua vez registram os bugs
